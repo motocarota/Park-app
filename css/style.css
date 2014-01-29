@@ -1,3 +1,10 @@
-#page-1 {
-	background-color: #09f;
+.car-icon {
+	padding: 5px 15px;
+	margin: 0;
+	box-shadow: none;
+	border: none;
+	background-color: #f9f9f9;
+}
+.car-icon img {
+	height: 24px;
 }

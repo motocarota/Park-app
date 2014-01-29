@@ -9,7 +9,6 @@
 	<script src="lib/jquery.mobile-1.4.0.min.js"></script>
 </head>
 <body>
-
 	<!-- Posizione auto -->
 	<div data-role="page" id="page-0">
 		<div data-role="header" data-position="fixed">
@@ -17,6 +16,7 @@
 		</div>
 		<div data-role="content">
 			TODO 0
+			<img src="images/tmp/map.png"/>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -32,12 +32,48 @@
 	
 	<!-- Scadenza parcheggio -->
 	<div data-role="page" id="page-1">
+		
+		<!-- panel - car select -->
+		<div data-role="panel" id="car-select" data-position="right" data-display="overlay">
+			<ul data-role="listview">
+				<li><a href="#page-1" data-role="close"><img src="images/car.png" class="ui-li-icon"/>Fiat panda</a></li>
+				<li><a href="#page-1" data-role="close"><img src="images/car.png" class="ui-li-icon"/>Ferrari</a></li>
+			</ul>
+		</div>
+		
+		<!-- popup - options -->
+		<div id="options" data-role="popup" class="ui-content" data-overlay-theme="b">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+			<p>TODO</p>
+			<p>Qui ci metteremo opzioni del cacchio a vanvera</p>
+			<a href="#" data-role="button">Okay</a>
+		</div>
+		
+		<!-- header -->
 		<div data-role="header" data-position="fixed">
-			<h1>Scadenza Park</h1>
+			<a href="#options" data-rel="popup" data-transition="pop" data-position-to="window">Opzioni</a>
+			<h1>Scadenza Parcheggio</h1>
+			<a href="#car-select" class="car-icon"><img src="images/car.png"/></a>
 		</div>
+		
+		<!-- content -->
 		<div data-role="content">
-			<img src="images/mask.png" class='mask'/>
+			<form>
+				<label for="slider-H">Ora di arrivo:</label>
+				<input type="range" name="slider-H" id="slider-H" min="8" max="20" value="8"></input>
+				
+				<label for="slider-alert">Avvisami N minuti prima:</label>
+				<input type="range" name="slider-alert" id="slider-alert" min="0" max="60" value="5"></input>
+				
+				<label for="flip-1">Attivo:</label>
+				    <select id="flip-1" name="flip-1" data-role="slider">
+				        <option value="off">No</option>
+				        <option value="on">Si</option>
+				    </select>
+			</form>
 		</div>
+		
+		<!-- footer -->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
@@ -56,7 +92,7 @@
 			<h1>Scadenze</h1>
 		</div>
 		<div data-role="content">
-            <img src="images/PromemoriaScadenze/promemoriaScadenze_mockup.jpg" class='mask'/>
+            <img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>
 		</div>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
@@ -70,7 +106,7 @@
 		</div>
 	</div>
 	
-	<!-- Builder -->
+	<!-- Reminder complesso -->
 	<div data-role="page" id="page-3">
 		<div data-role="header" data-position="fixed">
 			<h1>Builder complessissimo</h1>
