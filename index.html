@@ -118,28 +118,41 @@
             <!--<img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>-->
             <div data-role="collapsible" data-content-theme="false">
                 <h4>ASSICURAZIONE</h4>
-                <div data-role="tabs" id="assicurazione-tabs">
+                <div data-role="tabs" id="ass-tabs">
                     <div data-role="navbar">
                         <ul>
-                            <li><a href="#ass-fatta-il" data-ajax="false">fatta il</a></li>
+                            <li><a href="#ass-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
                             <li><a href="#ass-scade-il" data-ajax="false">scade il</a></li>
                         </ul>
                     </div>
                     <div id="ass-fatta-il" class="ui-body-d ui-content">
-                       <p>GG - MM - YYYY</p>
+                        <input type="date" data-clear-btn="true" name="date-2" id="ass-fatta-il-date" value="01/01/2014">
                     </div>
                     <div id="ass-scade-il" class="ui-body-d ui-content">
-                       <p>GG - MM - YYYY</p>
+                        <input type="date" data-clear-btn="true" name="date-2" id="ass-scade-il-date" value="01/01/2014">
                     </div>
                 </div>
             </div>
             <div data-role="collapsible" data-content-theme="false">
                 <h4>BOLLO</h4>
-                <input type="date" name="date" id="date" value=""  />	
+                <div data-role="tabs" id="bollo-tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#bollo-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
+                            <li><a href="#bollo-scade-il" data-ajax="false">scade il</a></li>
+                        </ul>
+                    </div>
+                    <div id="bollo-fatta-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="bollo-fatta-il-date" id="bollo-fatta-il-date" value="01/01/2014">
+                    </div>
+                    <div id="bollo-scade-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="bollo-scade-il-date" id="bollo-scade-il-date" value="01/01/2014">
+                    </div>
+                </div>	
             </div>
             <div data-role="collapsible" data-content-theme="false">
                 <h4>REVISIONE</h4>
-                <p>GG - MM - YYYY</p>
+                <p>TODO</p>
             </div>
         </div>
         <div data-role="footer" data-position="fixed">
