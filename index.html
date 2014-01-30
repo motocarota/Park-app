@@ -117,6 +117,7 @@
         <div data-role="content">
             <!--<img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>-->
             <div data-role="collapsible" data-content-theme="false">
+               <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
                 <h4>ASSICURAZIONE</h4>
                 <div data-role="tabs" id="ass-tabs">
                     <div data-role="navbar">
@@ -134,6 +135,7 @@
                 </div>
             </div>
             <div data-role="collapsible" data-content-theme="false">
+                <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
                 <h4>BOLLO</h4>
                 <div data-role="tabs" id="bollo-tabs">
                     <div data-role="navbar">
@@ -151,8 +153,13 @@
                 </div>	
             </div>
             <div data-role="collapsible" data-content-theme="false">
+                <!-- prova con triplo spin numerico - GG / MM / YYYY -->
                 <h4>REVISIONE</h4>
-                <p>TODO</p>
+                 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-day" pattern="[0-9]*" id="rev-num-day" value="1" type="number"  maxlength="2"></div> 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-month" pattern="[0-9]*" id="rev-num-month" value="1" type="number"  maxlength="2"></div> 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-year" pattern="[0-9]*" id="rev-num-year" value="2014" type="number"  maxlength="4"></div>
+                
             </div>
         </div>
         <div data-role="footer" data-position="fixed">
