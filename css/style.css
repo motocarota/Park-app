@@ -8,3 +8,11 @@
 .car-icon img {
 	height: 24px;
 }
+
+.date-num-div
+{
+   float:left;
+   width:30%;
+   padding-right:20px;
+ 
+}
