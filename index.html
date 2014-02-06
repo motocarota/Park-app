@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 	<title>Park-App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/jquery.mobile-1.4.0.min.css" />
@@ -98,25 +97,90 @@
 		</div>
 	</div>
 	
-	<!-- Promemoria scadenze -->
-	<div data-role="page" id="page-2">
-		<div data-role="header" data-position="fixed">
-			<h1>Scadenze</h1>
-		</div>
-		<div data-role="content">
-            <img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#page-0" data-icon="user">Page 0</a></li>
-					<li><a href="#page-1" data-icon="star">Page 1</a></li>
-					<li><a href="#page-2" data-icon="shop">Page 2</a></li>
-					<li><a href="#page-3" data-icon="location">Page 3</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <!-- Promemoria scadenze -->
+    <div data-role="page" id="page-2">
+
+        <!-- panel - car selection -->
+        <div data-role="panel" id="car-select2" data-position="right" data-display="overlay">
+            <ul data-role="listview">
+                <li><a href="#page-1" data-role="close">
+                    <img src="images/car.png" class="ui-li-icon" />Fiat panda</a></li>
+                <li><a href="#page-1" data-role="close">
+                    <img src="images/car.png" class="ui-li-icon" />Ferrari</a></li>
+            </ul>
+        </div>
+
+        <!-- popup - options -->
+        <div id="options2" data-role="popup" class="ui-content" data-overlay-theme="b">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <p>TODO</p>
+            <p>TODO</p>
+            <a href="#" data-role="button">Okay</a>
+        </div>
+
+        <!-- header -->
+        <div data-role="header" data-position="fixed">
+            <h1>Scadenze</h1>
+        </div>
+        <div data-role="content">
+            <!--<img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>-->
+            <div data-role="collapsible" data-content-theme="false">
+               <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
+                <h4>ASSICURAZIONE</h4>
+                <div data-role="tabs" id="ass-tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#ass-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
+                            <li><a href="#ass-scade-il" data-ajax="false">scade il</a></li>
+                        </ul>
+                    </div>
+                    <div id="ass-fatta-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="date-2" id="ass-fatta-il-date" value="01/01/2014">
+                    </div>
+                    <div id="ass-scade-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="date-2" id="ass-scade-il-date" value="01/01/2014">
+                    </div>
+                </div>
+            </div>
+            <div data-role="collapsible" data-content-theme="false">
+                <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
+                <h4>BOLLO</h4>
+                <div data-role="tabs" id="bollo-tabs">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#bollo-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
+                            <li><a href="#bollo-scade-il" data-ajax="false">scade il</a></li>
+                        </ul>
+                    </div>
+                    <div id="bollo-fatta-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="bollo-fatta-il-date" id="bollo-fatta-il-date" value="01/01/2014">
+                    </div>
+                    <div id="bollo-scade-il" class="ui-body-d ui-content">
+                        <input type="date" data-clear-btn="true" name="bollo-scade-il-date" id="bollo-scade-il-date" value="01/01/2014">
+                    </div>
+                </div>	
+            </div>
+            <div data-role="collapsible" data-content-theme="false">
+                <!-- prova con triplo spin numerico - GG / MM / YYYY -->
+                <h4>REVISIONE</h4>
+                 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-day" pattern="[0-9]*" id="rev-num-day" value="1" type="number"  maxlength="2"></div> 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-month" pattern="[0-9]*" id="rev-num-month" value="1" type="number"  maxlength="2"></div> 
+                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-year" pattern="[0-9]*" id="rev-num-year" value="2014" type="number"  maxlength="4"></div>
+                
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#page-0" data-icon="user">Page 0</a></li>
+                    <li><a href="#page-1" data-icon="star">Page 1</a></li>
+                    <li><a href="#page-2" data-icon="shop">Page 2</a></li>
+                    <li><a href="#page-3" data-icon="location">Page 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 	
 	<!-- Reminder complesso -->
 	<div data-role="page" id="page-3">
@@ -202,199 +266,5 @@
 			</div>
 		</div>
 	</div>
-=======
-    <title>Park-App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="lib/jquery.mobile-1.4.0.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="lib/jquery-1.11.0.min.js"></script>
-    <script src="lib/jquery.mobile-1.4.0.min.js"></script>
-</head>
-<body>
-    <!-- Posizione auto -->
-    <div data-role="page" id="page-0">
-        <div data-role="header" data-position="fixed">
-            <h1>Posizione Auto</h1>
-        </div>
-        <div data-role="content">
-            TODO 0
-			<img src="images/tmp/map.png" />
-        </div>
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page-0" data-icon="user">Page 0</a></li>
-                    <li><a href="#page-1" data-icon="star">Page 1</a></li>
-                    <li><a href="#page-2" data-icon="shop">Page 2</a></li>
-                    <li><a href="#page-3" data-icon="location">Page 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scadenza parcheggio -->
-    <div data-role="page" id="page-1">
-
-        <!-- panel - car selection -->
-        <div data-role="panel" id="car-select" data-position="right" data-display="overlay">
-            <ul data-role="listview">
-                <li><a href="#page-1" data-role="close">
-                    <img src="images/car.png" class="ui-li-icon" />Fiat panda</a></li>
-                <li><a href="#page-1" data-role="close">
-                    <img src="images/car.png" class="ui-li-icon" />Ferrari</a></li>
-            </ul>
-        </div>
-
-        <!-- popup - options -->
-        <div id="options" data-role="popup" class="ui-content" data-overlay-theme="b">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <p>TODO</p>
-            <p>Qui ci metteremo opzioni del cacchio a vanvera</p>
-            <a href="#" data-role="button">Okay</a>
-        </div>
-
-        <!-- header -->
-        <div data-role="header" data-position="fixed">
-            <a href="#options" data-rel="popup" data-transition="pop" data-position-to="window">Opzioni</a>
-            <h1>Scadenza Parcheggio</h1>
-            <a href="#car-select" class="car-icon">
-                <img src="images/car.png" /></a>
-        </div>
-
-        <!-- content -->
-        <div data-role="content">
-            <form>
-                <label for="slider-H">Ora di arrivo:</label>
-                <input type="range" name="slider-H" id="slider-H" min="8" max="20" value="8"></input>
-
-                <label for="slider-alert">Avvisami N minuti prima:</label>
-                <input type="range" name="slider-alert" id="slider-alert" min="0" max="60" value="5"></input>
-
-                <label for="flip-1">Attivo:</label>
-                <select id="flip-1" name="flip-1" data-role="slider">
-                    <option value="off">No</option>
-                    <option value="on">Si</option>
-                </select>
-            </form>
-        </div>
-
-        <!-- footer -->
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page-0" data-icon="user">Page 0</a></li>
-                    <li><a href="#page-1" data-icon="star">Page 1</a></li>
-                    <li><a href="#page-2" data-icon="shop">Page 2</a></li>
-                    <li><a href="#page-3" data-icon="location">Page 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Promemoria scadenze -->
-    <div data-role="page" id="page-2">
-
-        <!-- panel - car selection -->
-        <div data-role="panel" id="car-select2" data-position="right" data-display="overlay">
-            <ul data-role="listview">
-                <li><a href="#page-1" data-role="close">
-                    <img src="images/car.png" class="ui-li-icon" />Fiat panda</a></li>
-                <li><a href="#page-1" data-role="close">
-                    <img src="images/car.png" class="ui-li-icon" />Ferrari</a></li>
-            </ul>
-        </div>
-
-        <!-- popup - options -->
-        <div id="options2" data-role="popup" class="ui-content" data-overlay-theme="b">
-            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <p>TODO</p>
-            <p>TODO</p>
-            <a href="#" data-role="button">Okay</a>
-        </div>
-
-        <!-- header -->
-        <div data-role="header" data-position="fixed">
-            <h1>Scadenze</h1>
-        </div>
-        <div data-role="content">
-            <!--<img src="images/tmp/promemoriaScadenze_mockup.jpg" class='mask'/>-->
-            <div data-role="collapsible" data-content-theme="false">
-               <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
-                <h4>ASSICURAZIONE</h4>
-                <div data-role="tabs" id="ass-tabs">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><a href="#ass-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
-                            <li><a href="#ass-scade-il" data-ajax="false">scade il</a></li>
-                        </ul>
-                    </div>
-                    <div id="ass-fatta-il" class="ui-body-d ui-content">
-                        <input type="date" data-clear-btn="true" name="date-2" id="ass-fatta-il-date" value="01/01/2014">
-                    </div>
-                    <div id="ass-scade-il" class="ui-body-d ui-content">
-                        <input type="date" data-clear-btn="true" name="date-2" id="ass-scade-il-date" value="01/01/2014">
-                    </div>
-                </div>
-            </div>
-            <div data-role="collapsible" data-content-theme="false">
-                <!-- prova con doppio tab e campi date (calndar per mobile e browser compatibili) -->
-                <h4>BOLLO</h4>
-                <div data-role="tabs" id="bollo-tabs">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><a href="#bollo-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a></li>
-                            <li><a href="#bollo-scade-il" data-ajax="false">scade il</a></li>
-                        </ul>
-                    </div>
-                    <div id="bollo-fatta-il" class="ui-body-d ui-content">
-                        <input type="date" data-clear-btn="true" name="bollo-fatta-il-date" id="bollo-fatta-il-date" value="01/01/2014">
-                    </div>
-                    <div id="bollo-scade-il" class="ui-body-d ui-content">
-                        <input type="date" data-clear-btn="true" name="bollo-scade-il-date" id="bollo-scade-il-date" value="01/01/2014">
-                    </div>
-                </div>	
-            </div>
-            <div data-role="collapsible" data-content-theme="false">
-                <!-- prova con triplo spin numerico - GG / MM / YYYY -->
-                <h4>REVISIONE</h4>
-                 
-                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-day" pattern="[0-9]*" id="rev-num-day" value="1" type="number"  maxlength="2"></div> 
-                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-month" pattern="[0-9]*" id="rev-num-month" value="1" type="number"  maxlength="2"></div> 
-                <div class="date-num-div"><input data-clear-btn="false" name="rev-num-year" pattern="[0-9]*" id="rev-num-year" value="2014" type="number"  maxlength="4"></div>
-                
-            </div>
-        </div>
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page-0" data-icon="user">Page 0</a></li>
-                    <li><a href="#page-1" data-icon="star">Page 1</a></li>
-                    <li><a href="#page-2" data-icon="shop">Page 2</a></li>
-                    <li><a href="#page-3" data-icon="location">Page 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Reminder complesso -->
-    <div data-role="page" id="page-3">
-        <div data-role="header" data-position="fixed">
-            <h1>Builder complessissimo</h1>
-        </div>
-        <div data-role="content">
-            TODO 3
-        </div>
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#page-0" data-icon="user">Page 0</a></li>
-                    <li><a href="#page-1" data-icon="star">Page 1</a></li>
-                    <li><a href="#page-2" data-icon="shop">Page 2</a></li>
-                    <li><a href="#page-3" data-icon="location">Page 3</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
->>>>>>> pr/4
 </body>
 </html>
