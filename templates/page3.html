@@ -1,0 +1,64 @@
+<div data-role="content">
+	<div id="comboRepeats" data-role="fieldcontain">
+	<label for="combo">
+		<strong>Si ripete:</strong>
+	</label>
+	<select name="combo">
+		<option value="daily">Ogni giorno</option>
+		<option value="weekly">Ogni settimana</option>
+		<option value="monthly">Ogni mese</option>
+		<option value="yearly">Ogni anno</option>
+		<option value="workDays">Giorni lavorativi</option>
+		<option value="restDays">Giorni festivi</option>
+	</select>
+	</div>
+	<div id="inputTextRepeats" data-role="fieldcontain">
+		<label for="numberOfRepeats">
+			<strong>Ripeti per settimane: </strong>
+		</label>
+		<input type="text" name="numberOfRepeats">
+	</div>
+	<div id="checkBoxRepeats" data-role="controlgroup">
+	<form>
+		<fieldset data-role="controlgroup" data-type="horizontal">
+			<legend>
+				<strong>Ripeti il giorno:</strong>
+			</legend>
+			<input type="checkbox" name="checkbox-monday" id="checkbox-monday">
+			<label for="checkbox-monday">L</label>
+			<input type="checkbox" name="checkbox-tuesday" id="checkbox-tuesday">
+			<label for="checkbox-tuesday">M</label>
+			<input type="checkbox" name="checkbox-wednesday" id="checkbox-wednesday">
+			<label for="checkbox-wednesday">M</label>
+			<input type="checkbox" name="checkbox-thursday" id="checkbox-thursday">
+			<label for="checkbox-thursday">G</label>
+			<input type="checkbox" name="checkbox-friday" id="checkbox-friday">
+			<label for="checkbox-friday">V</label>
+			<input type="checkbox" name="checkbox-saturday" id="checkbox-saturday">
+			<label for="checkbox-saturday">S</label>
+			<input type="checkbox" name="checkbox-sunday" id="checkbox-sunday">
+			<label for="checkbox-sunday">D</label>
+		</fieldset>
+	</form>
+	</div>
+	<div id="calendarRepeats">
+	<form action="#" method="get">
+		<div data-role="fieldcontain">
+		<label for="date">
+			<strong>Inizia il giorno:</strong>
+		</label>
+		<input type="date" name="date" id="date" value=""	 />
+		</div>
+	</form>
+	</div>
+	<div id="stopRepeats">
+	<form>
+		<legend>
+			<strong>Termina il:</strong>
+		</legend>
+		<label><input type="radio" name="radioRepeats" id="radioNever">Mai</label>
+		<label><input type="radio" name="radioRepeats" id="radioAfter">Dopo X occorrenze</label>
+		<label><input type="radio" name="radioRepeats" id="radioUntil">Inizia il</label>
+	</form>
+	</div>
+</div>

@@ -1,38 +1,22 @@
-$(document).on('pageinit', function() { 
+$(document).on(
+	//questo disattiva la navigazione di base di jquery mobile
+	//link: http://demos.jquerymobile.com/1.4.0/backbone-requirejs/
+	"mobileinit",
+	function() {
+		$.mobile.ajaxEnabled = false;
+		$.mobile.linkBindingEnabled = false;
+		$.mobile.hashListeningEnabled = false;
+		$.mobile.pushStateEnabled = false;	  
+	}
+);
 
-	window.app = {};
-	app.views = {};
-
-	var PositionModel = Backbone.Model.extend({
-		defaults: {
-			positionLon: 10,
-			positionLat: 10
-		},
-		initialize: function(){
-			//interroga il chip GPS  per aggiornare la posizione
-			//var result = navigator.geolocation.getCurrentPosition( function(pos){
-			//	return pos;
-			//});
-			//this.set('position', result);
-		}
+$(document).ready(function() {
+	jQuery.support.cors = true;
+	jQuery.ajaxSetup({cache: false});
+	
+	tpl.loadTemplates([
+		'page0', 'page1', 'page2', 'page3', 'options', 'help', 'vehicle', 'header', 'footer'
+	], function() {
+		new app.Router();
 	});
-	
-	app.views.PositionView = Backbone.View.extend({
-		el: '#page-0-content',
-		initialize: function(){
-			this.render();
-		},
-		template: _.template( "hello: <%= positionLon %>" ),
-		render: function(){
-			this.$el.html( this.template( this.model.attributes ) );
-		}
-	});
-	
-	
-	
-	var pm = new PositionModel( { positionLon: 9999 } );
-	var pv = new app.views.PositionView( { model: pm } );
-	//pv.render();
-	app.pm = pm
-
 });
