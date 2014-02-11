@@ -1,0 +1,64 @@
+<div id="options2" data-role="popup" class="ui-content" data-overlay-theme="b">
+	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+	<p>TODO</p>
+	<p>TODO</p>
+	<a href="#" data-role="button">Okay</a>
+</div>
+<div data-role="content">
+	<div data-role="collapsible" data-content-theme="false">
+	<h4>ASSICURAZIONE</h4>
+	<div data-role="tabs" id="ass-tabs">
+		<div data-role="navbar">
+		<ul>
+			<li>
+			<a href="#ass-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a>
+			</li>
+			<li>
+			<a href="#ass-scade-il" data-ajax="false">scade il</a>
+			</li>
+		</ul>
+		</div>
+		<div id="ass-fatta-il" class="ui-body-d ui-content">
+		<input type="date" data-clear-btn="true" name="date-2" id="ass-fatta-il-date" value="01/01/2014">
+				</div>
+		<div id="ass-scade-il" class="ui-body-d ui-content">
+		<input type="date" data-clear-btn="true" name="date-2" id="ass-scade-il-date" value="01/01/2014">
+				</div>
+	</div>
+	</div>
+	<div data-role="collapsible" data-content-theme="false">
+	<h4>BOLLO</h4>
+	<div data-role="tabs" id="bollo-tabs">
+		<div data-role="navbar">
+		<ul>
+			<li>
+			<a href="#bollo-fatta-il" class="ui-btn-active" data-ajax="false">fatta il</a>
+			</li>
+			<li>
+			<a href="#bollo-scade-il" data-ajax="false">scade il</a>
+			</li>
+		</ul>
+		</div>
+		<div id="bollo-fatta-il" class="ui-body-d ui-content">
+		<input type="date" data-clear-btn="true" name="bollo-fatta-il-date" id="bollo-fatta-il-date" value="01/01/2014">
+				</div>
+		<div id="bollo-scade-il" class="ui-body-d ui-content">
+		<input type="date" data-clear-btn="true" name="bollo-scade-il-date" id="bollo-scade-il-date" value="01/01/2014">
+				</div>
+	</div>
+	</div>
+	<div data-role="collapsible" data-content-theme="false">
+	<h4>REVISIONE</h4>
+
+	<div class="date-num-div">
+		<input data-clear-btn="false" name="rev-num-day" pattern="[0-9]*" id="rev-num-day" value="1" type="number"	maxlength="2">
+	</div>
+	<div class="date-num-div">
+		<input data-clear-btn="false" name="rev-num-month" pattern="[0-9]*" id="rev-num-month" value="1" type="number"	maxlength="2">
+	</div>
+	<div class="date-num-div">
+		<input data-clear-btn="false" name="rev-num-year" pattern="[0-9]*" id="rev-num-year" value="2014" type="number"	 maxlength="4">
+	</div>
+
+	</div>
+</div>
