@@ -1,6 +1,4 @@
 $(document).on(
-	//questo disattiva la navigazione di base di jquery mobile
-	//link: http://demos.jquerymobile.com/1.4.0/backbone-requirejs/
 	"mobileinit",
 	function() {
 		$.mobile.ajaxEnabled = false;
@@ -18,5 +16,6 @@ $(document).ready(function() {
 		'page0', 'page1', 'page2', 'page3', 'options', 'help', 'vehicle', 'header', 'footer'
 	], function() {
 		new app.Router();
+		Backbone.history.start();
 	});
 });

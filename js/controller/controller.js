@@ -9,31 +9,43 @@
 	};
 	
 	app.Router = Backbone.Router.extend({
-		initialize: function() {
-			Backbone.history.start();
-		},
-
+		initialize: function() { },
+		
 		routes: {
-			"": 			"page0",
-			"page0": 		"page0",
-			"page1": 		"page1",
-			"page2": 		"page2",
-			"page3": 		"page3",	//NOTA: si potrebbe fare in modo MOLTO piu' furbo 
+			"": 			"init",
+			"page-0": 		"page0",
+			"page-1": 		"page1",
+			"page-2": 		"page2",
+			"page-3": 		"page3",	//NOTA: si potrebbe fare in modo MOLTO piu' furbo 
 			"vehicle/:id": 	"vehicle",	//usando tipo <--- ma per ora lasciamo perdere
 			"options": 		"options",
 			"help": 		"help"
 		},
-
+		
 		status: {
 			pages: []
 		},
-	
-		page0: function( ) { 
 		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
+		
+		openPage: function(pageNumber) {
+		  this.navigate("page-" + pageNumber);
+		},
+		
+		init: function( ) { 
+			console.log('loading')
+			
+			// setTimeout( "$.mobile.navigate('#page-1')", 1000);
+			// openPage( 1 )
+			this.navigate("page-1");
+			
+		},
+		
+		page0: function( ) { 
+			console.log('DIOPORCO')
+			// if ( !app.user ) {
+			// 	$.mobile.navigate("#");
+			// 	return;
+			// }
 			if ( !this.status.pages[0] ) {
 				this.status.pages[0] = {};
 				var view = this.status.pages[0].view = new app.views.Page0({ model: new app.models.Page0() });
@@ -45,14 +57,14 @@
 		},
 		
 		page1: function( ) { 
-		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
+			// if ( !app.user ) {
+			// 	$.mobile.navigate("#");
+			// 	return;
+			// }
 			if ( !this.status.pages[1] ) {
 				this.status.pages[1] = {};
-				var view = this.status.pages[1].view = new app.views.Page1({ model: new app.models.Page1() });
+				var m = new app.models.Page1();
+				var view = this.status.pages[1].view = new app.views.Page1({ model: m });
 				$( view.el ).attr( "id", "page-1" );
 				this.createPage( view );
 			}
@@ -135,7 +147,7 @@
 		
 			if ( mode === 'dialog' ) {
 				$(page.el).attr('data-role', 'dialog');
-				$.mobile.changePage($(page.el), {
+				$.mobile.navigate($(page.el), {
 					allowSamePageTransition: true,
 					reverse: false,
 					changeHash: false,
@@ -144,8 +156,11 @@
 				});
 			} else {
 				$(page.el).attr('data-role', 'page');
-				$.mobile.changePage($(page.el), {
-					changeHash: false,
+				// $.mobile.navigate('#page-1');
+				// console.log("OP",$(page.el))
+				// $.mobile.navigate( page.el, {
+				$.mobile.changePage( $(page.el), {
+					changeHash: true,
 					transition: this.historyCount++ ? $.mobile.defaultPageTransition : 'none'
 				});
 			}

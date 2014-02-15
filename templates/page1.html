@@ -12,4 +12,8 @@
 		<option value="on">Si</option>
 	</select>
 	</form>
+	<p>problema: il primo link non funziona, mentre il secondo si'. Pare non venga triggerata l'azione del controller.</p>
+	<p>Una volta cambiata la pagina con navigate (o editando l'url a mano), per qualche motivo si sbloccano anche i link href</p>
+	<a href="#page-0">vai a page 0 ( href="#page-0" )</a>
+	<a onclick="$.mobile.navigate('#page-0');">vai a page 0 ( onclick=$.mobile.navigate('#page-0'); )</a>
 </div>
