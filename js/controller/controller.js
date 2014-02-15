@@ -2,94 +2,43 @@
 
 	window.app = {
 		user: {},
-		models: {},
-		views: {},
+		models: {
+			pages: []
+		},
+		views: {
+			pages: []
+		},
 		collections: {}
 		//...
 	};
 	
 	app.Router = Backbone.Router.extend({
-		initialize: function() {
-			Backbone.history.start();
-		},
-
+		initialize: function() { },
+		
 		routes: {
-			"": 			"page0",
-			"page0": 		"page0",
-			"page1": 		"page1",
-			"page2": 		"page2",
-			"page3": 		"page3",	//NOTA: si potrebbe fare in modo MOLTO piu' furbo 
-			"vehicle/:id": 	"vehicle",	//usando tipo <--- ma per ora lasciamo perdere
+			"": 			"page",
+			"page-:id": 	"page",
+			"vehicle/:id": 	"vehicle",
 			"options": 		"options",
 			"help": 		"help"
 		},
-
+		
 		status: {
 			pages: []
 		},
-	
-		page0: function( ) { 
 		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
-			if ( !this.status.pages[0] ) {
-				this.status.pages[0] = {};
-				var view = this.status.pages[0].view = new app.views.Page0({ model: new app.models.Page0() });
-				$( view.el ).attr( "id", "page-0" );
+		page: function( id ) { 
+			id = id || 0;
+			if ( !this.status[ 'pages'+id ] ) {
+				var l = [ "Page0", "Page1", "Page2", "Page3" ];
+				this.status[ 'pages'+id ] = {};
+				var model = new app.models[ "Page"+id ];
+				var view = this.status[ 'pages'+id ].view = new app.views[ "Page"+id ]({ model: model });
+				$( view.el ).attr( "id", "page-"+id );
 				this.createPage( view );
 			}
-			this.changePage( this.status.pages[0].view );
-			this.status.pages[0].view.render( );
-		},
-		
-		page1: function( ) { 
-		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
-			if ( !this.status.pages[1] ) {
-				this.status.pages[1] = {};
-				var view = this.status.pages[1].view = new app.views.Page1({ model: new app.models.Page1() });
-				$( view.el ).attr( "id", "page-1" );
-				this.createPage( view );
-			}
-			this.changePage( this.status.pages[1].view );
-			this.status.pages[1].view.render( );
-		},
-		
-		page2: function( ) { 
-		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
-			if ( !this.status.pages[2] ) {
-				this.status.pages[2] = {};
-				var view = this.status.pages[2].view = new app.views.Page2({ model: new app.models.Page2() });
-				$( view.el ).attr( "id", "page-2" );
-				this.createPage( view );
-			}
-			this.changePage( this.status.pages[2].view );
-			this.status.pages[2].view.render( );
-		},
-		
-		page3: function( ) { 
-		
-			if ( !app.user ) {
-				$.mobile.navigate("#");
-				return;
-			}
-			if ( !this.status.pages[3] ) {
-				this.status.pages[3] = {};
-				var view = this.status.pages[3].view = new app.views.Page3({ model: new app.models.Page3() });
-				$( view.el ).attr( "id", "page-3" );
-				this.createPage( view );
-			}
-			this.changePage( this.status.pages[3].view );
-			this.status.pages[3].view.render( );
+			this.changePage( this.status[ 'pages'+id ].view );
+			this.status[ 'pages'+id ].view.render( );
 		},
 		
 		vehicle: function( id ) { 
@@ -135,7 +84,7 @@
 		
 			if ( mode === 'dialog' ) {
 				$(page.el).attr('data-role', 'dialog');
-				$.mobile.changePage($(page.el), {
+				$.mobile.navigate($(page.el), {
 					allowSamePageTransition: true,
 					reverse: false,
 					changeHash: false,
@@ -144,8 +93,8 @@
 				});
 			} else {
 				$(page.el).attr('data-role', 'page');
-				$.mobile.changePage($(page.el), {
-					changeHash: false,
+				$.mobile.changePage( $(page.el), {
+					changeHash: true,
 					transition: this.historyCount++ ? $.mobile.defaultPageTransition : 'none'
 				});
 			}
